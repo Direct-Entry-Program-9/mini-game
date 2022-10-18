@@ -39,11 +39,7 @@ let index = 1;
 const draw = ()=> {
     if (dy !== 0){
         player.style.backgroundImage = `url('img/adventure_girl/png/Jump (${index++}).png')`;
-<<<<<<< HEAD
     } else if (dy === 0 && dx !== 0){
-=======
-    } else if (dx !== 0){
->>>>>>> b00f5a1 (Fix urls)
         player.style.backgroundImage = `url('img/adventure_girl/png/Run (${index++}).png')`;
     }else{
         if (!fire){
