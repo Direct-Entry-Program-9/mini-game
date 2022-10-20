@@ -1,3 +1,33 @@
+const imgUrls = [
+    'img/background.png',
+    'img/Tile (1).png',
+    'img/Tile (2).png',
+    'img/Tile (3).png',
+    'img/ArrowSign.png',
+    'img/background.png'
+];
+for(let i = 1; i <= 10; i++){
+    imgUrls.push(`img/adventure_girl/png/Idle (${i}).png`);
+    imgUrls.push(`img/adventure_girl/png/Jump (${i}).png`);
+    if (i <= 8)
+    imgUrls.push(`img/adventure_girl/png/Run (${i}).png`);
+}
+
+const progress = document.getElementById('progress');
+progress.style.width = `0`;
+let loaded = 0;
+
+imgUrls.forEach((url) => {
+    const img = new Image();
+    img.addEventListener('load', () => {
+        loaded++;
+        progress.style.width = `${Math.ceil(loaded / imgUrls.length * 100)}%`;
+        if (loaded === imgUrls.length)
+        setTimeout(()=> document.getElementById('overlay').remove(), 500);
+    });
+    img.src = url;
+});
+
 const player = document.getElementById('player');
 const ground = document.getElementById('ground');
 let dx = 0;
@@ -9,7 +39,7 @@ let index = 1;
 const draw = ()=> {
     if (dy !== 0){
         player.style.backgroundImage = `url('img/adventure_girl/png/Jump (${index++}).png')`;
-    } else if (dx !== 0){
+    } else if (dy === 0 && dx !== 0){
         player.style.backgroundImage = `url('img/adventure_girl/png/Run (${index++}).png')`;
     }else{
         if (!fire){
@@ -23,7 +53,11 @@ const draw = ()=> {
         index = 1;
     }
     if (index > 10){
-        index = 1;
+        if (dy !== 0){
+            index = 10;
+        }else{
+            index = 1;
+        }
     } 
     requestAnimationFrame(draw);
 }
@@ -62,7 +96,7 @@ addEventListener('keydown', ({ key }) => {
 });
 
 addEventListener('keypress', ({key}) => {
-    if (key === ' '){
+    if (key === ' ' && dy === 0){
         index = 1;
         dy = -10;
         acceleration = 0.3;

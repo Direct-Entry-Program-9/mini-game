@@ -64,3 +64,33 @@ body {
     background-image: url('../img/Tile\ \(2\).png');
     background-repeat: repeat-x;
 }
+
+#overlay {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    h1{
+        font-family: Ubuntu, sans-serif;
+    }
+
+    #progress-wrapper{
+        width: 50%;
+        height: 5px;
+        background-color: rgb(245, 245, 245);
+
+        #progress{
+            width: 10%;
+            height: 5px;
+            background-color: rgb(47, 196, 255);
+        }
+    }
+}
