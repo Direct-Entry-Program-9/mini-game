@@ -1,0 +1,91 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#arrow {
+  position: absolute;
+  left: 20px;
+  bottom: 100px;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  background-image: url("../img/background.png");
+  background-size: cover;
+}
+
+#player {
+  background-image: url("../img/adventure_girl/png/Idle (1).png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 202px;
+  height: 156px;
+  position: absolute;
+  bottom: 550px;
+}
+
+.turn {
+  transform: rotateY(180deg);
+}
+
+#ground {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 128px;
+  background-image: url("../img/Tile (2).png");
+  background-repeat: repeat-x;
+}
+#ground::before {
+  display: block;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 128px;
+  height: 128px;
+  background-image: url("../img/Tile (1).png");
+}
+#ground::after {
+  display: block;
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 128px;
+  height: 128px;
+  background-image: url("../img/Tile (3).png");
+}
+
+#overlay {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+#overlay h1 {
+  font-family: Ubuntu, sans-serif;
+}
+#overlay #progress-wrapper {
+  width: 50%;
+  height: 5px;
+  background-color: rgb(245, 245, 245);
+}
+#overlay #progress-wrapper #progress {
+  width: 10%;
+  height: 5px;
+  background-color: rgb(47, 196, 255);
+}
+
+/*# sourceMappingURL=style.css.map */
